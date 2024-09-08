@@ -3,7 +3,7 @@ import time
 import sys
 import random
 script_dir = os.path.dirname(os.path.abspath(__file__))
-user_path = os.path.join(script_dir, 'subdir', 'users')
+user_path = os.path.join(script_dir, 'users')
 cont = True
 print("Welcome to PicklePrompt")
 while cont == True:
@@ -71,16 +71,15 @@ while cont == True:
               if accountdata[username] == password:
                  print("Access Granted... Launching")
                  time.sleep(1)
-                 os.system("cls")
+                 os.system('cls' if os.name == 'nt' else 'clear')
                  cont = False
               else:
                 print("Incorrect Password")
-                print(accountdata[correctusername])
                 time.sleep(1)
-                os.system("cls")
+                os.system('cls' if os.name == 'nt' else 'clear')
             except KeyError:
               print("That username was not found")
               time.sleep(1)
-              os.system("cls")
+              os.system('cls' if os.name == 'nt' else 'clear')
           
       
