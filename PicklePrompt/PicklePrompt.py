@@ -2,10 +2,13 @@ import os
 import time
 import sys
 import random
+script_dir = os.path.dirname(os.path.abspath(__file__))
+user_path = os.path.join(script_dir, 'subdir', 'users')
 cont = True
 print("Welcome to PicklePrompt")
 while cont == True:
-  with open("PicklePrompt/users", "r") as fi:
+  with open(user_path, "r") as fi:
+    #print(fi.read())
     if fi.read() == "FirstStartupTrue":
       print("It appears that this is your first time using PicklePrompt.")
       print("y/n")
@@ -17,7 +20,7 @@ while cont == True:
         cmd = ""
         username = ""
         password = ""
-        with open("PicklePrompt/users", "w") as f:
+        with open(user_path, "w") as f:
           f.write("recoveryneeded")
           print("What would you like to set your username to?")
           username = input("> ")
@@ -26,19 +29,19 @@ while cont == True:
           password = input("> ")
           print("Saving Login Info...")
           f.close()
-          with open("PicklePrompt/users", "w") as f:
+          with open(user_path, "w") as f:
            cont = False
            f.write("\n" + username + "|" + password)
            f.close()
            print("File Saved Succesfully")
     else:
-      with open("PicklePrompt/users", "r") as fi:
+      with open(user_path, "r") as fi:
         if fi.read() == "recoveryneeded":
           cont = False
           print("An error occured while setting up your PicklePrompt, please try re-installing it.")
           fi.close()
         else:
-          with open("PicklePrompt/users", "r") as fi:
+          with open(user_path, "r") as fi:
             print("Enter your password and username")
             print("\n")
             fileadd = 0
