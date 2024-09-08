@@ -71,16 +71,16 @@ while cont == True:
               if accountdata[username] == password:
                  print("Access Granted... Launching")
                  time.sleep(1)
-                 os.system("clr")
+                 os.system("cls")
                  cont = False
               else:
                 print("Incorrect Password")
                 print(accountdata[correctusername])
                 time.sleep(1)
-                os.system("clr")
+                os.system("cls")
             except KeyError:
               print("That username was not found")
               time.sleep(1)
-              os.system("clr")
+              os.system("cls")
           
       
